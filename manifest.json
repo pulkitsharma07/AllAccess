@@ -1,0 +1,23 @@
+{
+  "name": "AllAccess",
+  "version": "2.0",
+  "manifest_version": 2,
+  "description": "Automatically uses a proxy to bypass blocked websites by cyberoam",
+
+   "icons": {
+      "16": "icon-16.png",
+      "48": "icon-48.png",
+    "128": "icon-128.png"
+   },
+
+   
+  "background": {
+    "scripts": ["background.js"],
+    "persistent" : false
+  },
+  "permissions": [
+    "tabs",
+    "http://*/",
+    "https://*/"
+  ]
+}
