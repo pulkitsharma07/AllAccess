@@ -12,10 +12,12 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     			
     		}
     	);
+
+         chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
+             chrome.tabs.update(tabId,{"url" : "http://tojuet.appspot.com/" + message.redirect_url});
+        });
     }
 
-    chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
-  		chrome.tabs.update(tabId,{"url" : "http://tojuet.appspot.com/" + message.redirect_url});
-	});
+   
 });
 
