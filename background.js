@@ -18,6 +18,11 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
         });
     }
 
+    if(tab.title == "500 Internal Server Error")
+    {
+        chrome.tabs.reload(tabId);
+    }
+
    
 });
 
