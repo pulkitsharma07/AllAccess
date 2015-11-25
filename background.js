@@ -9,13 +9,23 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     		},
     		function(data)
     		{
-    			
+
+                
     		}
     	);
 
-         chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
-             chrome.tabs.update(tabId,{"url" : "http://tojuet.appspot.com/" + message.redirect_url});
+
+        var updated = 0;
+        chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
+
+            if(updated == 0)
+                chrome.tabs.update(tabId,{"url" : "http://tojuet.appspot.com/" + message.redirect_url});
+            
+            updated = updated + 1;
+
         });
+                
+
     }
 
     if(tab.title == "500 Internal Server Error")
